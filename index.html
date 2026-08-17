@@ -12,6 +12,7 @@
 		<style>
 			* , *::before, *::after { box-sizing: border-box; }
 			:root { --color-bg:#000; --color-text:#fff; --color-link:rgba(255,255,255,0.5); --color-link-hover:#f8c5dc; }
+			html { scroll-behavior:smooth; }
 			html, body { margin:0; }
 			body {
 				background:var(--color-bg); color:var(--color-text);
@@ -49,9 +50,9 @@
 			.m-logo { position:absolute; inset:0; width:100%; height:100%; padding:4rem 1rem; display:block; }
 			.m-credits {
 				position:absolute; bottom:1.5rem; left:0; right:0; margin:0;
-				font-size:1rem; letter-spacing:.25em; word-spacing:.75em; font-weight:300; text-align:center; color:var(--color-link);
+				font-size:1.35rem; letter-spacing:.3em; word-spacing:.75em; font-weight:500; text-align:center; color:var(--color-text);
 			}
-			@media (min-width:53em){ .m-credits{ font-size:1.2vw; } }
+			@media (min-width:53em){ .m-credits{ font-size:1.8vw; } }
 		</style>
 	</head>
 	<body class="loading">
@@ -98,7 +99,7 @@
 				<section class="m-item m-photo-1">
 					<div class="m-inner">
 						<div class="m-img"></div>
-						<p class="m-caption"><a href="projects.html">View all projects &rarr;</a></p>
+						<p class="m-caption"><a href="#photo2">Scroll down &darr;</a></p>
 					</div>
 				</section>
 
@@ -107,11 +108,11 @@
 					<svg class="m-logo" width="100%" height="100%" viewBox="0 0 1000 220" preserveAspectRatio="none">
 						<text x="0" y="182" font-size="210" font-weight="700" textLength="1000" lengthAdjust="spacingAndGlyphs" fill="#fff">MARTYNA</text>
 					</svg>
-					<p class="m-credits">Portfolio</p>
+					<p class="m-credits">Romankiewicz</p>
 				</section>
 
 				<!-- 3. The same photo again -->
-				<section class="m-item m-photo-2">
+				<section id="photo2" class="m-item m-photo-2">
 					<div class="m-inner">
 						<div class="m-img"></div>
 						<p class="m-caption"><a href="projects.html">View all projects &rarr;</a></p>
