@@ -163,6 +163,9 @@ a:focus-visible {
 .frame__info {
 	grid-area: info;
 	align-self: end;
+	justify-self: center;
+	text-align: center;
+	width: 100%;
 }
 
 .frame__nav {
