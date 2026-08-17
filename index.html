@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Martyna</title>
+		<meta name="description" content="Martyna — home" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<!-- Shared font baseline (same Typekit as FullscreenScroll-main: "obviously") -->
+		<link rel="stylesheet" href="https://use.typekit.net/zns7sax.css" />
+		<link rel="stylesheet" href="menu.css" />
+		<style>
+			* , *::before, *::after { box-sizing: border-box; }
+			:root { --color-bg:#000; --color-text:#fff; --color-link:rgba(255,255,255,0.5); --color-link-hover:#f8c5dc; }
+			html, body { margin:0; }
+			body {
+				background:var(--color-bg); color:var(--color-text);
+				text-transform:uppercase;
+				font-family: obviously, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+				-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+			}
+			a { color:var(--color-link); text-decoration:none; }
+			a:hover { color:var(--color-link-hover); }
+
+			/* Page loader */
+			.loading::before, .loading::after { content:''; position:fixed; z-index:1000; }
+			.loading::before { inset:0; background:var(--color-bg); }
+			.loading::after {
+				top:50%; left:50%; width:60px; height:60px; margin:-30px 0 0 -30px; border-radius:50%;
+				opacity:.4; background:var(--color-link); animation:mLoader .7s linear infinite alternate forwards;
+			}
+			@keyframes mLoader { to { opacity:1; transform:scale3d(.5,.5,1); } }
+
+			.m-grid { display:flex; flex-direction:column; gap:2vh; }
+			.m-item { height:100vh; display:grid; place-items:center; }
+
+			.m-inner { display:grid; gap:1rem; place-items:center; text-align:center; }
+			.m-img {
+				background-size:cover; background-position:50% 50%;
+				height:85vh; aspect-ratio:1.5; max-width:92vw; width:100%;
+			}
+			/* Two separate home photos (swap these files for your own) */
+			.m-photo-1 .m-img { background-image:url(img/home-1.jpg); }
+			.m-photo-2 .m-img { background-image:url(img/home-2.jpg); }
+			.m-caption { margin:0; font-size:1rem; letter-spacing:.05em; }
+
+			/* Name section — MARTYNA fills the full height, stretches on scroll */
+			.m-name { position:relative; overflow:hidden; }
+			.m-logo { position:absolute; inset:0; width:100%; height:100%; padding:4rem 1rem; display:block; }
+			.m-credits {
+				position:absolute; bottom:1.5rem; left:0; right:0; margin:0;
+				font-size:1rem; letter-spacing:.25em; word-spacing:.75em; font-weight:300; text-align:center; color:var(--color-link);
+			}
+			@media (min-width:53em){ .m-credits{ font-size:1.2vw; } }
+		</style>
+	</head>
+	<body class="loading">
+		<!-- ===== Shared top-right menu ===== -->
+		<p class="menu-open">Menu</p>
+		<div class="menu">
+			<div class="menu-nav"><p class="menu-close">Close</p></div>
+			<div class="menu-col menu-img">
+				<img id="img-1" src="img/hero.jpg" alt="" />
+				<img id="img-2" src="img/hero.jpg" alt="" />
+				<img id="img-3" src="img/hero.jpg" alt="" />
+				<img id="img-4" src="img/hero.jpg" alt="" />
+			</div>
+			<div class="menu-col menu-items">
+				<div class="menu-logo"><img src="img/logo.png" alt="" /></div>
+				<div class="menu-links">
+					<div class="menu-link"><p><a href="index.html">Home</a></p></div>
+					<div class="menu-link"><p><a href="projects.html">Projects</a></p></div>
+					<div class="menu-link"><p><a href="#">Story</a></p></div>
+					<div class="menu-link"><p><a href="#">Contact</a></p></div>
+				</div>
+				<div class="menu-footer">
+					<div class="menu-sub-col">
+						<div class="menu-sub-item"><p>Connect</p></div>
+						<br />
+						<div class="menu-sub-item"><p>Instagram</p></div>
+						<div class="menu-sub-item"><p>Youtube</p></div>
+						<div class="menu-sub-item"><p>Spotify</p></div>
+					</div>
+					<div class="menu-sub-col">
+						<div class="menu-sub-item"><p>Contact</p></div>
+						<br />
+						<div class="menu-sub-item"><p>Email</p></div>
+						<div class="menu-sub-item"><p>Ocean City, MD</p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ================================= -->
+
+		<main>
+			<div class="m-grid">
+				<!-- 1. Photo -->
+				<section class="m-item m-photo-1">
+					<div class="m-inner">
+						<div class="m-img"></div>
+						<p class="m-caption"><a href="projects.html">View all projects &rarr;</a></p>
+					</div>
+				</section>
+
+				<!-- 2. Name — grows to full height, then shrinks -->
+				<section class="m-item m-name">
+					<svg class="m-logo" width="100%" height="100%" viewBox="0 0 1000 220" preserveAspectRatio="none">
+						<text x="0" y="182" font-size="210" font-weight="700" textLength="1000" lengthAdjust="spacingAndGlyphs" fill="#fff">MARTYNA</text>
+					</svg>
+					<p class="m-credits">Portfolio</p>
+				</section>
+
+				<!-- 3. The same photo again -->
+				<section class="m-item m-photo-2">
+					<div class="m-inner">
+						<div class="m-img"></div>
+						<p class="m-caption"><a href="projects.html">View all projects &rarr;</a></p>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<!-- Global GSAP + ScrollTrigger -->
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+		<script>
+			gsap.registerPlugin(ScrollTrigger);
+			window.addEventListener('load', () => {
+				document.body.classList.remove('loading');
+
+				const photo1 = document.querySelector('.m-photo-1 .m-img');
+				const photo2 = document.querySelector('.m-photo-2 .m-img');
+				const nameItem = document.querySelector('.m-name');
+				const logo = document.querySelector('.m-logo');
+
+				// Photo 1: full at top, shrinks uniformly (keeps its shape) on leave
+				gsap.set(photo1, { transformOrigin: '50% 50%' });
+				gsap.fromTo(photo1, { scale: 1 }, { scale: 0, ease: 'none',
+					scrollTrigger: { trigger: '.m-photo-1', start: 'center center', end: 'bottom top', scrub: true } });
+
+				// Name: unfurls from the top to FULL height by centre...
+				gsap.set(logo, { transformOrigin: '50% 0%', scaleY: 0 });
+				gsap.fromTo(logo, { scaleY: 0 }, { scaleY: 1, ease: 'none',
+					scrollTrigger: { trigger: nameItem, start: 'top bottom', end: 'center center', scrub: true,
+						onEnter: () => gsap.set(logo, { transformOrigin: '50% 0%' }),
+						onEnterBack: () => gsap.set(logo, { transformOrigin: '50% 0%' }) } });
+				// ...then shrinks from the bottom as photo 2 scales in
+				gsap.fromTo(logo, { scaleY: 1 }, { scaleY: 0, ease: 'none',
+					scrollTrigger: { trigger: nameItem, start: 'center center', end: 'bottom top', scrub: true,
+						onEnter: () => gsap.set(logo, { transformOrigin: '50% 100%' }),
+						onEnterBack: () => gsap.set(logo, { transformOrigin: '50% 100%' }) } });
+
+				// Photo 2 (same picture): scales uniformly back in
+				gsap.set(photo2, { transformOrigin: '50% 50%', scale: 0 });
+				gsap.fromTo(photo2, { scale: 0 }, { scale: 1, ease: 'none',
+					scrollTrigger: { trigger: '.m-photo-2', start: 'top bottom', end: 'center center', scrub: true } });
+			});
+		</script>
+
+		<!-- Shared menu behaviour -->
+		<script src="menu.js"></script>
+	</body>
+</html>
