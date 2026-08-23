@@ -95,7 +95,7 @@
   margin: 0;
 }
 .menu-link a { color: #fff; text-decoration: none; }
-.menu-link a:hover { opacity: 0.6; }
+.menu-link a:hover { color: #f8c5dc; }
 
 .menu-footer { display: flex; width: 100%; gap: 1.5rem; }
 .menu-sub-col { flex: 1; }
@@ -111,3 +111,4 @@
   .menu-img { display: none; }
   .menu-link p { font-size: 1.75rem; }
 }
+
