@@ -387,7 +387,7 @@ a:focus-visible {
 	}
 }
 
-/* Mobile: stack into one column — text first, photo full-width at the bottom */
+/* Mobile: stack into one column â€” text first, photo full-width at the bottom */
 @media screen and (max-width: 53em) {
 	.slide__content {
 		grid-template-columns: 1fr;
