@@ -387,7 +387,7 @@ a:focus-visible {
 	}
 }
 
-/* Mobile: stack into one column â€” text first, photo full-width at the bottom */
+/* Mobile: stack into one column — text first, photo full-width at the bottom */
 @media screen and (max-width: 53em) {
 	.slide__content {
 		grid-template-columns: 1fr;
@@ -404,5 +404,24 @@ a:focus-visible {
 		width: 100%;
 		height: auto;
 		aspect-ratio: 3 / 2;
+	}
+	/* On mobile, put the link on the SAME line as the role, before its text
+	   (only for the card that actually has a link) */
+	.slide__content:has(.slide__link) {
+		grid-template-rows: auto auto auto auto auto;
+		grid-template-columns: auto auto;
+		grid-column-gap: 0.6rem;
+		grid-template-areas: 'year year' 'title title' 'text text' 'link role' 'img img';
+		justify-content: center;
+	}
+	.slide__content:has(.slide__link) .slide__link {
+		justify-self: end;
+		align-self: center;
+		margin: 1.5rem 0 0 0;
+	}
+	.slide__content:has(.slide__link) .slide__role {
+		justify-self: start;
+		align-self: center;
+		margin: 1.5rem 0 0 0;
 	}
 }
