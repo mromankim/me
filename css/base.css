@@ -284,10 +284,10 @@ a:focus-visible {
 	justify-content: center;
 	display: grid;
 	padding: 1rem;
-	grid-template-rows: auto auto auto auto auto;
+	grid-template-rows: auto auto auto auto auto auto;
 	grid-template-columns: 1fr 1fr;
 	grid-column-gap: 2rem;
-	grid-template-areas: 'year year' 'img title' 'img text' 'img ...' 'role role' ;
+	grid-template-areas: 'year year' 'img title' 'img text' 'img ...' 'role role' 'link link' ;
 }
 
 .slide__year {
@@ -308,6 +308,33 @@ a:focus-visible {
 	letter-spacing: 0.15em;
 	margin: 2rem 0 0 0;
 	color: rgba(255,255,255,0.7);
+}
+
+.slide__link {
+	grid-area: link;
+	justify-self: center;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin: 1.5rem 0 0 0;
+	padding: 0.6rem 0.9rem;
+	border: 1px solid var(--color-link-hover);
+	border-radius: 2rem;
+	color: var(--color-link-hover);
+	font-size: 1.5rem;
+	line-height: 1;
+	transition: background 0.3s, color 0.3s;
+}
+.slide__link:hover {
+	background: var(--color-link-hover);
+	color: var(--color-bg-slide);
+}
+.slide__link svg {
+	width: 1em;
+	height: 1em;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
 }
 
 .slide__content-img {
@@ -353,10 +380,10 @@ a:focus-visible {
 		justify-self: center;
 	}
 	.slide__content {
-		grid-template-rows: auto auto auto auto auto;
+		grid-template-rows: auto auto auto auto auto auto;
 		grid-template-columns: 220px 300px;
 		grid-column-gap: 2rem;
-		grid-template-areas: 'year year' 'img title' 'img text' 'img ...' 'role role' ;
+		grid-template-areas: 'year year' 'img title' 'img text' 'img ...' 'role role' 'link link' ;
 	}
 }
 
@@ -364,10 +391,10 @@ a:focus-visible {
 @media screen and (max-width: 53em) {
 	.slide__content {
 		grid-template-columns: 1fr;
-		grid-template-rows: auto auto auto auto auto;
+		grid-template-rows: auto auto auto auto auto auto;
 		grid-column-gap: 0;
 		grid-row-gap: 1.5rem;
-		grid-template-areas: 'year' 'title' 'text' 'role' 'img';
+		grid-template-areas: 'year' 'title' 'text' 'role' 'link' 'img';
 		justify-content: stretch;
 		padding: 4.5rem 1.5rem 2rem;
 	}
