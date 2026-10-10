@@ -61,7 +61,10 @@
   gsap.set('.menu-sub-item p', { y: 12 });
   gsap.set(['#img-2, #img-3, #img-4'], { top: '150%' });
 
+  const menuEl = document.querySelector('.menu');
+
   const openMenu = () => {
+    if (menuEl) menuEl.classList.add('is-open');
     gsap.to('.menu', {
       clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
       pointerEvents: 'all',
@@ -91,6 +94,7 @@
         gsap.set('.menu-sub-item p', { y: 12 });
         gsap.set('.menu-items', { opacity: 1, top: '0px' });
         gsap.set(['#img-2, #img-3, #img-4'], { top: '150%' });
+        if (menuEl) menuEl.classList.remove('is-open');
         isOpen = false;
       },
     });
