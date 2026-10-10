@@ -1,5 +1,5 @@
 /* =====================================================================
-   Shared top-right MENU overlay — used on every page.
+   Shared top-right MENU overlay â€” used on every page.
    Restyled to the FullscreenScroll-main font baseline ("obviously",
    uppercase) instead of the component's original Inter.
    ===================================================================== */
@@ -40,6 +40,16 @@
   text-transform: uppercase;
   font-family: obviously, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  /* Fallback hide for browsers without clip-path support (e.g. older Samsung TV
+     browsers). Instant (no transition) so modern browsers behave exactly as
+     before â€” the clip-path animation remains the only visible effect. */
+  visibility: hidden;
+  opacity: 0;
+}
+
+.menu.is-open {
+  visibility: visible;
+  opacity: 1;
 }
 
 .menu img { width: 100%; height: 100%; object-fit: cover; }
@@ -111,4 +121,3 @@
   .menu-img { display: none; }
   .menu-link p { font-size: 1.75rem; }
 }
-
